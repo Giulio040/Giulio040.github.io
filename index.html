@@ -1,0 +1,105 @@
+<!doctype html>
+    <html lang="it">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width,initial-scale=1">
+            <title> Robot</title>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+            <style>
+                html, body { margin: 0; padding: 0; }
+                canvas { display: block; }
+            </style>
+        </head>
+            <body>
+                <script>
+                function setup() {
+                    createCanvas(600, 400);
+                }
+
+                function draw() {
+                    background(250, 128, 114);
+                    // retta per la simmetria
+                    line(300, 0, 300, 400);
+
+                    //faccia
+
+                    //grandezza bordo
+                    strokeWeight(2);
+                    //colore bordo nero
+                    stroke(0, 0, 0);
+                    //antenna sinistra
+                    line(mouseX-17.5,mouseY- 120, mouseX-5,mouseY- 100);
+                    //antenna destra
+                    line(mouseX+17.5, mouseY- 120,mouseX+5, mouseY- 100);
+                    //colore di riempimento rosso
+                    fill(203, 50, 52);
+                    //rettangolo curvo base delle antenne
+                    rect(mouseX-15, mouseY-100, 30, 20, 5);
+                    //orecchio sinistro
+                    rect(mouseX-55,mouseY-55, 15, 15);
+                    //orechhio destro
+                    rect(mouseX+40,mouseY-55, 15, 15);
+                    //colore di riempimento verde acqua
+                    fill(127, 255, 212);
+                    // il quadrato è la base della faccia
+                    square(mouseX-40,mouseY- 90, 80, 20);
+                    //colore di riempimento giallo
+                    fill(255, 255, 0);
+                    //occhio sinistro
+                    circle(mouseX-20, mouseY-65, 25);
+                    //occhio destro
+                    circle(mouseX+20, mouseY-65, 25);
+                    //bocca
+                    rect(mouseX-10, mouseY-25, 20, 15);
+                    //colore di riempimento rosso
+                    fill(203, 50, 52);
+                    //naso
+                    triangle(mouseX+0, mouseY-55,mouseX -10, mouseY-45,mouseX+ 10, mouseY-45);
+                    //collo
+                    rect(mouseX-15, mouseY-8, 30, 15);
+
+                    //corpo
+
+                    //giuntura sinistra
+                    rect(mouseX-60, mouseY+20, 30, 20, 5);
+                    //giuntura destra
+                    rect(mouseX+30, mouseY+20, 30, 20, 5);
+                    //colore di riempimento verde acqua
+                    fill(127, 255, 212);
+                    //base del corpo
+                    rect(mouseX-50, mouseY+7, 100, 90, 5);
+
+                    //gambe
+                    //rettangolo
+                    rect(mouseX-8, mouseY+97, 16, 30);
+                    //linea sinistra
+                    line(mouseX-28, mouseY+110,mouseX-8, mouseY+110);
+                    //linea destra
+                    line(mouseX+28, mouseY+110, mouseX+8, mouseY+110);
+                    //parte centrale della gamba sinistra
+                    rect(mouseX-50,mouseY+ 110, 20, 80);
+                    //parte centrale della gamba destra
+                    rect(mouseX+25,mouseY+ 110, 20, 80);
+                    //colore di riempimento rosso
+                    fill(203, 50, 52)
+                    //parte superiore della gamba sinistra
+                    rect(mouseX-55, mouseY+105, 30, 15, 3, 0, 0, 3);
+                    //parte superiore della gamba destra
+                    rect(mouseX+21, mouseY+ 105, 30, 15, 0, 3, 3, 0);
+                    //piede sinistro
+                    rect(mouseX-55, mouseY+190, 30, 35);
+                    //piede destro
+                    rect(mouseX+21, mouseY+190, 30, 35);
+
+
+                    //braccia
+                    //colore di riempimento verde acqua
+                    fill(127, 255, 212);
+                    //braccia sinistra
+                    rect(mouseX-80, mouseY+20, 20, 70, 0, 0, 3, 3);
+                    //braccia destra
+                    rect(mouseX+60, mouseY+20, 20, 70, 0, 0, 3, 3);
+                }
+                </script>
+            </body>
+    </html>
