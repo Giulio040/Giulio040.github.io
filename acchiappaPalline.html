@@ -1,0 +1,153 @@
+<!doctype html>
+    <html lang="it">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width,initial-scale=1">
+            <title> acchiappaPaline</title>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+            <style>
+                html, body { margin: 0; padding: 0; }
+                canvas { display: block; }
+            </style>
+        </head>
+            <body>
+              <script>
+                     // coordinata x di 20 palline
+                     let Px = [];
+                     // coordinata y di 20 palline
+                     let Py = [];
+                     // indice dell'array
+                     let i;
+                     // coordinata x del rettangolo
+                     let rX;
+                     // indice del punteggio
+                     let score=0;
+                     // variabile per il colore rosso
+                     let R=[];
+                     // variabile per il colore verde
+                     let G=[];
+                     // variabile per il colore blu
+                     let B=[];
+
+
+                     function setup() {
+
+
+                         //condizione iniziale: i=0
+                         //condizione finale: i<20
+                         //istruzione di incremento: i++
+                         for(i=0;i<20;i++) {
+
+                             //coordinata y delle palline casuale da 0 a 300
+                             Py[i]=Math.random() *300;
+
+                         }
+
+
+                         //condizione iniziale: i=0
+                         //condizione finale: i<20
+                         //istruzione di incremento: i++
+                         for(i=0;i<20;i++) {
+
+                             // coordinata x delle palline casuale da 0 a 800
+                             Px[i]=Math.random() *800;
+
+                         }
+
+
+                         //condizione iniziale: i=0
+                         //condizione finale: i<20
+                         //istruzione di incremento: i++
+                         for(i=0;i<20;i++){
+
+                             // valore casuale da 0 a 255 per il rosso
+                             R[i]=Math.random() *255;
+                             // valore casuale da 0 a 255 per il verde
+                             G[i]=Math.random() *255;
+                             // valore casuale da 0 a 255 per il blu
+                             B[i]=Math.random() *255;
+                             }
+                          createCanvas(800, 600);
+                      }
+
+                     function draw() {
+                         background(0,0,0);
+
+
+                         //condizione iniziale: i=0
+                         //condizione finale: i<20
+                         //istruzione di incremento: i++
+                         for(i=0;i<20;i++) {
+
+                             // colore di riempimento casuale per le palline
+                             fill(R[i],G[i],B[i]);
+                             // palline
+                             circle(Px[i],Py[i],40);
+
+                         }
+
+                         //preparo il nuovo disegno
+
+                         //condizione iniziale: i=0
+                         //condizione finale: i<20
+                         //istruzione di incremento: i++
+                         for(i=0;i<20;i++) {
+
+                           // incremento della coordianta y delle palline
+                             Py[i]=Py[i]+3;
+
+                         }
+
+
+                         rX = mouseX-40;
+
+
+                         //se coordinata x dell'angolo in alto a sinistra della racchetta (rX) è <=0 allora rX assume valore 0
+                         if (rX <= 0) {
+                           rX = 0;
+                         }
+                         //se coordinata y dell'angolo in alto a sinistra della racchetta (rX) è >=720 allora rX    assume valore 720
+                         if (rX >= 720) {
+                           rX = 720;
+
+                         }
+
+                         //condizione iniziale: i=0
+                         //condizione finale: i<20
+                         //istruzione di incremento: i++
+                         for(i=0;i<20;i++) {
+
+                           //se la coordinata y del cerchio è >=530 and la coordinata y del cerchio è <=585
+                           //se la coordinata x del cerchio è <=rX+105 and la coordinata x del cerchio è >rX-25
+                           //pongo la coordinata y a =-100 ,la coordinata x casuale  e incremento score++
+                           if(Py[i]>=530 && Py[i]<=585){
+                               if(Px[i]<=rX+105 && Px[i]>rX-25 ){
+
+                                     Py[i]=-100;
+                                     Px[i]=Math.random() *800
+                                     score++;
+
+                               }
+                           }
+                         }
+                         //condizione iniziale: i=0
+                         //condizione finale: i<20
+                         //istruzione di incremento: i++
+                         for(i=0;i<20;i++) {
+
+                           //se la coordinata y del cerchio è =625
+                           // pongo score=0
+                             if(Py[i]==625){
+                                 score=0;
+                               }
+                         }
+
+                         fill(255,255,255);
+                         //punteggio
+                         text("Score: " + score, 720, 25);
+                         //racchetta
+                         rect(rX,550,80,20);
+                     }
+              </script>
+            </body>
+    </html>
